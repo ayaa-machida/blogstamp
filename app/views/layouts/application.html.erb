@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blogstamp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style type="text/css" href="./style.css"></style>
+
+  <!-- Compiled and minified CSS -->
+
+
+    <!-- Compiled and minified JavaScript -->
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="header">
+    <div class="Logo">
+      <a href="/blogs" class="brand-logo">Blog</a>
+    </div>
+    <div class="menubox">
+      <ul class="menulists">
+        <% if user_signed_in?%>
+          <li class="menulist"><%= link_to "SignOut", destroy_user_session_path, method: :delete, class: "menulink" %></li>
+          <li class="menulist"><%= link_to "New", new_blog_path, class: "menulink" %></li>
+          <% else %>
+          <li class="menulist"><%= link_to "Signin", new_user_session_path, class: "post menulink" %></li>
+          <li class="menulist"><%= link_to "SignUp", new_user_registration_path, class: "post menulink" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+<script type="text/javascript" src="./app.js"></script>
+
+<%= yield %>
+
+</body>
+</html>

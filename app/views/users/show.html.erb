@@ -1,0 +1,12 @@
+<div class="contents row" >
+    <p><%= @nickname %>さんの投稿一覧</p>
+    <% @blogs.each do |blog| %>
+        <div class="title_large" >
+        <%= simple_format(blog.title) %>
+        </div>
+        <div class="text-small" >
+        <%= simple_format(blog.text) %>
+      </div>
+    <% end %>
+    <%= paginate(@blogs) %>
+  </div>

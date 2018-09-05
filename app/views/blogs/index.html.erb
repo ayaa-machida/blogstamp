@@ -1,0 +1,25 @@
+<div class="contents" >
+  <% @blogs.each do |blog| %>
+    <div class="content">
+      <div class="top-box">
+        <h3 class="content-title" >
+          <%= simple_format(blog.title) %>
+        </h3>
+        <%= link_to blog, class: 'content-icon' do %>
+         <i class="fa fa-arrow-circle-right "></i>
+        <% end %>
+      </div>
+      <p class="content-text" >
+        <%= blog.text %>
+      </p>
+        <div class="more_list">
+        <li><%= link_to '編集', "/blogs/#{blog.id}/edit", method: :get %></li>
+        <li><%= link_to '削除', "/blogs/#{blog.id}", method: :delete %></li>
+        </div>
+    </div>
+  <% end %>
+</div>
+<div class="footer">
+  <%= paginate(@blogs) %>
+</div>
+
